@@ -4,14 +4,13 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { isAuthenticated } from "@/lib/auth";
 
-export default function Home() {
+export default function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   useEffect(() => {
-    if (isAuthenticated()) {
-      router.replace("/dashboard");
-    } else {
-      router.replace("/login");
+    if (!isAuthenticated()) {
+      router.push("/login");
     }
   }, [router]);
-  return null;
+
+  return <>{isAuthenticated() ? children : null}</>;
 }
