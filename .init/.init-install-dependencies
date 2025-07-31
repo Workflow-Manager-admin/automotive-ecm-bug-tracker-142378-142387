@@ -1,0 +1,4 @@
+{
+    "command": "npm install",
+    "working_directory": "/home/kavia/workspace/code-generation/automotive-ecm-bug-tracker-142378-142387/ecm_bug_finder_frontend"
+}
